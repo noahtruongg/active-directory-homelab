@@ -16,7 +16,7 @@ Map out the lab before building it so I understand how data flows between machin
 ## Diagram
 Built in draw.io. Dotted green lines show log forwarding from the domain controller and target machine to Splunk. The attacker (red) is not forwarding logs.
 
-![Network diagram](../images/01-planning/network-diagram.png)
+![Network diagram](../images/01-planning/network-diagram.svg)
 
 ## What I Learned
 [Your notes, e.g. why diagramming first helps, how the data flows.]
