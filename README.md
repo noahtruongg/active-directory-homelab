@@ -6,7 +6,7 @@ A virtualized enterprise environment built in VirtualBox to practice Active Dire
 
 ## Network Diagram
 
-![Network diagram](images/01-planning/network-diagram.png)
+![Network diagram](images/01-planning/network-diagram.svg)
 
 ## Lab Environment
 
