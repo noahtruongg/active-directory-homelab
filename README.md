@@ -13,7 +13,7 @@ A virtualized enterprise environment built in VirtualBox to practice Active Dire
 | Machine | OS | Role | IP Address |
 |---|---|---|---|
 | ADDC01 | Windows Server 2022 | Domain controller (`mydfir.local`), Sysmon, Splunk UF | 192.168.10.7 (static) |
-| Target-PC | Windows 10 Pro | Domain-joined endpoint, Sysmon, Splunk UF, Atomic Red Team | 192.168.10.100 (static) |
+| Target-PC | Windows 10 Pro | Domain-joined endpoint, Sysmon, Splunk UF, Atomic Red Team | DHCP later changed to 192.168.10.100 (static) |
 | splunk | Ubuntu Server 26.04 | Splunk Enterprise (SIEM) | 192.168.10.10 (static) |
 | kali | Kali Linux | Attacker machine | 192.168.10.250 (static) |
 
