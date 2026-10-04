@@ -14,7 +14,7 @@ A virtualized enterprise environment built in VirtualBox to practice Active Dire
 |---|---|---|---|
 | ADDC01 | Windows Server 2022 | Domain controller (`mydfir.local`), Sysmon, Splunk UF | 192.168.10.7 (static) |
 | Target-PC | Windows 10 Pro | Domain-joined endpoint, Sysmon, Splunk UF, Atomic Red Team | 192.168.10.100 (static) |
-| splunk | Ubuntu Server 22.04 | Splunk Enterprise (SIEM) | 192.168.10.10 (static) |
+| splunk | Ubuntu Server 26.04 | Splunk Enterprise (SIEM) | 192.168.10.10 (static) |
 | kali | Kali Linux | Attacker machine | 192.168.10.250 (static) |
 
 **Network:** VirtualBox NAT Network `ad-project` (192.168.10.0/24)
@@ -48,11 +48,11 @@ VirtualBox, Windows Server 2022, Active Directory Domain Services, Windows 10, U
 
 - The simulated RDP brute-force attack generated **20 failed logons (Event ID 4625)** in the same second, followed by **one successful logon (4624)** whose workstation name and source IP matched the Kali machine.
 - Atomic Red Team's local account creation test (T1136.001) initially produced no events in Splunk, exposing a **gap in detection visibility** in the default logging setup.
-- [Add anything else you noticed]
+- Learned that Splunk Universal Forwarder configuration changes (like inputs.conf) should always be made in the local/ directory rather than default/ because editing default/ directly risks breaking the base config, while local/ overrides it safely and can be reverted without reinstalling.
 
 ## Reflection
 
-[Write 3 to 5 sentences in your own words: what was hardest, what clicked, what you would add next, e.g. a firewall/IDS, alerts and dashboards in Splunk, more attack scenarios.]
+The hardest part of this lab wasn't the Active Directory concepts themselves, but the networking and troubleshooting around them, as in getting the Splunk Universal Forwarder to actually send Windows Event Logs took up a lot of time, since the forwarder connected to the indexer successfully but the events were still not showing up. This taught me to check each layer separately (network connectivity, the receiving port, the index itself, and the input configuration) rather than assuming one fix solves everything. The thing that really clicked was seeing the Brute Force attack from Kali Linux show up in the Splunk as a clear pattern of Event ID 4625 failures followed by a single 4624 success, which made the idea of "detection of attack behaviors through logs" more clear. I also learned firsthand how disruptive a failed domain join can be after I hit a BSOD that forced me to rebuild the Target VM from the start, which taught me to always create snapshots before making major changes. If I continued to build through this lab, I would want to add some more attack scenarios using Atomic Red Team to test detection gaps across different MITRE ATT&CK techniques, and eventually build the Splunk alerts/dashboards so that those detections are automatic rather than through manual searches. 
 
 ## Disclaimer
 
