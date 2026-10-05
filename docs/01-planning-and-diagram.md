@@ -5,7 +5,7 @@ Map out the lab before building it so I understand how data flows between machin
 
 ## Hardware Requirements
 - 16 GB RAM and 250 GB free disk recommended
-- Host used: [your host specs]
+- Host used: AMD Ryzen 7 2700X, 16 GB RAM, 1 TB HDD, Windows 10 Pro
 
 ## Planned Environment
 - 2 servers: Windows Server 2022 (Active Directory), Ubuntu Server (Splunk)
