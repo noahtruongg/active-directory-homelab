@@ -20,12 +20,13 @@ Install four VMs in VirtualBox: Windows 10, Kali Linux, Windows Server 2022, and
 - Imported the [pre-built VirtualBox image](https://www.kali.org/get-kali/#kali-virtual-machines) (extracted with 7-Zip)
 
 ### Windows Server 2022
-- Downloaded the ISO from the Microsoft Evaluation Center
-- VM name `ADDC01`: 4 GB RAM, 50 GB disk
+- Downloaded the ISO from the [Microsoft Evaluation Center](https://www.microsoft.com/en-us/evalcenter/download-windows-server-2022)
+- VM name `ADDC01`: 4 GB RAM, 1 CPU, 50 GB disk
 - Selected **Standard Evaluation (Desktop Experience)** for the GUI
+- **Ensure "Proceed with Unattended Installation" is unchecked**
 
 ### Ubuntu Server (Splunk)
-- Ubuntu Server 22.04: 8 GB RAM, 2 CPUs, 100 GB disk (larger since it ingests and searches data)
+- [Ubuntu Server 26.04](https://ubuntu.com/server): 8192 MB RAM, 2 CPUs, 100 GB disk (larger since it ingests and searches data)
 - Ran `sudo apt-get update && sudo apt-get upgrade -y`
 
 ## Screenshots
