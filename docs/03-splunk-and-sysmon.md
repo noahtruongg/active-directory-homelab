@@ -42,7 +42,8 @@ Collect endpoint telemetry with Sysmon and forward it to a Splunk server.
 
 ## Screenshots
 ![Splunk index=endpoint results](../images/03-splunk-sysmon/splunk-endpoint-events.png)
-!inputs.conf file on local folder[inputs.conf](../images/03-splunk-sysmon/inputs.conf.png)
+inputs.conf file on local folder
+![inputs.conf](../images/03-splunk-sysmon/inputs.conf.png)
 ![Two hosts in Splunk](../images/03-splunk-sysmon/splunk-two-hosts.png)
 
 ## Issues and Fixes
