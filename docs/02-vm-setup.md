@@ -17,7 +17,7 @@ Install four VMs in VirtualBox: Windows 10, Kali Linux, Windows Server 2022, and
 - VM: 4 GB RAM, 1 CPU, 50 GB disk, Windows 10 Pro, custom install
 
 ### Kali Linux
-- Imported the pre-built VirtualBox image (extracted with 7-Zip)
+- Imported the [pre-built VirtualBox image](https://www.kali.org/get-kali/#kali-virtual-machines) (extracted with 7-Zip)
 
 ### Windows Server 2022
 - Downloaded the ISO from the Microsoft Evaluation Center
