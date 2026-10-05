@@ -13,7 +13,7 @@ Install four VMs in VirtualBox: Windows 10, Kali Linux, Windows Server 2022, and
 - Installed the Microsoft Visual C++ dependency when prompted.
 
 ### Windows 10
-- Created an ISO with Microsoft's Media Creation Tool
+- Created an ISO with [Microsoft's Media Creation Tool](https://support.microsoft.com/en-us/windows/deployment/install-upgrade/create-installation-media-for-windows)
 - VM: 4 GB RAM, 1 CPU, 50 GB disk, Windows 10 Pro, custom install
 
 ### Kali Linux
