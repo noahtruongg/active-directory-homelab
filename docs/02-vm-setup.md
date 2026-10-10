@@ -32,6 +32,7 @@ Install four VMs in VirtualBox: Windows 10, Kali Linux, Windows Server 2022, and
 ## Screenshots
 VirtualBox with all four VMs (*Ignore "Linux Fedora" Virtual Machine*)
 ![VirtualBox with all four VMs](../images/02-vm-setup/4vms.png)
+
 Windows Server desktop
 ![Windows Server desktop](../images/02-vm-setup/windows.server.desktop.png)
 
