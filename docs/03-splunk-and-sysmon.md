@@ -41,11 +41,14 @@ Collect endpoint telemetry with Sysmon and forward it to a Splunk server.
 - Confirmed Splunk showed two hosts
 
 ## Screenshots
-![Splunk index=endpoint results](../images/03-splunk-sysmon/splunk-endpoint-events.png)
+Splunk index=endpoint results
+![Splunk index=endpoint results](../images/03-splunk-sysmon/splunk.endpoint.results.png)
 
 inputs.conf file on local folder
 ![inputs.conf](../images/03-splunk-sysmon/inputs.conf.png)
-![Two hosts in Splunk](../images/03-splunk-sysmon/splunk-two-hosts.png)
+
+Two hosts in Splunk
+![Two hosts in Splunk](../images/03-splunk-sysmon/two.hosts.png)
 
 ## Issues and Fixes
 [Add yours, e.g. netplan indentation, forwarder permissions, restarting the service after editing inputs.conf.]
