@@ -24,11 +24,14 @@ Install AD DS, promote the server to a domain controller, create users, and join
 ## Screenshots
 AD DS installed
 ![AD DS installed](../images/04-active-directory/adds.install.png)
+
 Users and OUs
 ![Users and OUs](../images/04-active-directory/users.jsmith.png)
 ![Users and OUs](../images/04-active-directory/users.tsmith.png)
+
 Domain join success
 ![Domain join success](../images/04-active-directory/domain.join.success.png)
+
 Logged in as domain user
 ![Logged in as domain user](../images/04-active-directory/user.logged.in.png)
 
