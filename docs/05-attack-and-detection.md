@@ -52,12 +52,15 @@ The new-local-user activity did eventually appear after a delay, so telemetry ca
 ![Atomic Red Team test](../images/05-attack-detection/atomic-test.png)
 ![Splunk PowerShell event](../images/05-attack-detection/splunk-powershell.png)
 
+## Issues and Fixes
+- **Issue: Atomic Red Team's local account creation test (T1136.001) produced no events in Splunk at first.**
+
+After running the test, I searched Splunk expecting to see the new local account creation show up immediately, but the search came back empty — which initially looked like a logging failure. Rather than a config error like the other forwarder issues in this project, this turned out to be a genuine detection gap: my default Sysmon/Windows Event Log setup wasn't capturing this specific technique the way I assumed it would
+
+**Fix:** After waiting and re-running the search, the event eventually appeared, showing that the issue wasn't a total blind spot, but a lag between the activity happening and it reaching Splunk. This distinguished "nothing is being logged" from "logging is just delayed," and highlighted that detection coverage has to be tested technique-by-technique rather than assumed from a general telemetry setup. 
+  
 ## What I Learned
-- What brute-force activity looks like in Windows event logs
-- How to pivot from an event ID to the source workstation and IP
-- Atomic Red Team helps validate whether your logging can actually see an attack
-- Next steps: build Splunk alerts and dashboards for these events
-- [Your own notes]
+This section made log-based detection feel real instead of just a concept. Running the brute-force attack from Kali and then finding the exact same activity in Splunk — 20 failed logons (Event ID 4625) packed into a single second, followed by one successful logon (4624) — showed me how a login pattern showed me how a single login does not look suspicious on its own, but seeing 20 of them occur at the same time makes the attack evident. Pivoting from that successful logon to the source workstation and attacker IP also clicked for me: an event ID isn't just a status code, it's a path you can follow back to where an attack originated from. Atomic Red Team's local account creation test (T1136.001) was the more important lesson, although it initially produced no events in Splunk at all, which meant my logging setup had a real blind spot, not telemetry isn't always instant, so "no events yet" and "no events, period" aren't the same thing, and is worth distinguishing before assuming a detection gap. Altogether, this section reframed detection for me: it's not enough to generate logs, you have to actually test whether your setup catches the specific behavior you care about, and Atomic Red Team is exactly the tool for finding that out before an attacker does. 
 
 ## Cleanup
-Took VirtualBox snapshots of every VM so I can restore to a known-good state.
+Once the attack simulation and detection testing were done, I tool VirtualBox snapshots of every VM (Target-PC, the Splunk server, and Kali) so I could restore each one to a known-good state before experimenting further. This was a direct lesson from the BSOD I ran into earlier in the project after the domain join — rebuilding a VM from scratch once was enough to make snapshotting before any risky step (running more attacks, testing new Atomic Red Team techniques, etc.) a habit.
