@@ -47,7 +47,7 @@ VirtualBox, Windows Server 2022, Active Directory Domain Services, Windows 10, U
 ## Key Findings
 
 - The simulated RDP brute-force attack generated **20 failed logons (Event ID 4625)** in the same second, followed by **one successful logon (4624)** whose workstation name and source IP matched the Kali machine.
-- Atomic Red Team's local account creation test (T1136.001) initially produced no events in Splunk, exposing a **gap in detection visibility** in the default logging setup.
+- Atomic Red Team's local account creation test (T1136.001) initially produced no events in Splunk, but the event appeared after a delay, showing that **telemetry can lag behind execution**.
 - Learned that Splunk Universal Forwarder configuration changes (like inputs.conf) should always be made in the local/ directory rather than default/ because editing default/ directly risks breaking the base config, while local/ overrides it safely and can be reverted without reinstalling.
 
 ## Reflection
