@@ -32,7 +32,7 @@ VirtualBox, Windows Server 2022, Active Directory Domain Services, Windows 10, U
 - Splunk indexing, receiving ports, and SPL searches
 - Log analysis using Windows Event IDs (4624, 4625)
 - Simulating attacks and mapping activity to MITRE ATT&CK techniques
-- Identifying detection gaps
+- Testing detection coverage
 - Troubleshooting (DNS resolution, service permissions, VirtualBox issues)
 
 ## Walkthrough
@@ -52,7 +52,7 @@ VirtualBox, Windows Server 2022, Active Directory Domain Services, Windows 10, U
 
 ## Reflection
 
-The hardest part of this lab wasn't the Active Directory concepts themselves, but the networking and troubleshooting around them, as in getting the Splunk Universal Forwarder to actually send Windows Event Logs took up a lot of time, since the forwarder connected to the indexer successfully but the events were still not showing up. This taught me to check each layer separately (network connectivity, the receiving port, the index itself, and the input configuration) rather than assuming one fix solves everything. The thing that really clicked was seeing the Brute Force attack from Kali Linux show up in the Splunk as a clear pattern of Event ID 4625 failures followed by a single 4624 success, which made the idea of "detection of attack behaviors through logs" more clear. I also learned firsthand how disruptive a failed domain join can be after I hit a BSOD that forced me to rebuild the Target VM from the start, which taught me to always create snapshots before making major changes. If I continued to build through this lab, I would want to add some more attack scenarios using Atomic Red Team to test detection gaps across different MITRE ATT&CK techniques, and eventually build the Splunk alerts/dashboards so that those detections are automatic rather than through manual searches. 
+The hardest part of this lab wasn't the Active Directory concepts themselves, but the networking and troubleshooting around them, as in getting the Splunk Universal Forwarder to actually send Windows Event Logs took up a lot of time, since the forwarder connected to the indexer successfully but the events were still not showing up. This taught me to check each layer separately (network connectivity, the receiving port, the index itself, and the input configuration) rather than assuming one fix solves everything. The thing that really clicked was seeing the Brute Force attack from Kali Linux show up in Splunk as a clear pattern of Event ID 4625 failures followed by a single 4624 success, which made the idea of "detection of attack behaviors through logs" more clear. I also learned firsthand how disruptive a failed domain join can be after I hit a BSOD that forced me to rebuild the Target VM from the start, which taught me to always create snapshots before making major changes. If I continued to build through this lab, I would want to add some more attack scenarios using Atomic Red Team to test detection gaps across different MITRE ATT&CK techniques, and eventually build the Splunk alerts/dashboards so that those detections are automatic rather than through manual searches. 
 
 ## Disclaimer
 
