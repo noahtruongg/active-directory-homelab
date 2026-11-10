@@ -26,7 +26,7 @@ Install four VMs in VirtualBox: Windows 10, Kali Linux, Windows Server 2022, and
 - **Ensure "Proceed with Unattended Installation" is unchecked**
 
 ### Ubuntu Server (Splunk)
-- [Ubuntu Server 26.04](https://ubuntu.com/server): 8192 MB RAM, 2 CPUs, 100 GB disk (larger since it ingests and searches data)
+- [Ubuntu Server 26.04](https://ubuntu.com/server): 8 GB RAM (eventually reduced to 4 GB RAM to avoid crashing host PC when running all VMs at once), 2 CPUs, 100 GB disk (larger since it ingests and searches data)
 - Ran `sudo apt-get update && sudo apt-get upgrade -y`
 
 ## Screenshots
