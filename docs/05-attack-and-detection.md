@@ -34,8 +34,11 @@ index=endpoint tsmith
 - The 20 failed attempts occurred within the same second, a clear brute-force indicator
 - The successful logon (4624) listed workstation name `kali` and the attacker's IP
 
-![Failed logons 4625](../images/05-attack-detection/splunk-4625.png)
-![Successful logon 4624](../images/05-attack-detection/splunk-4624.png)
+Failed logons 4625
+![Failed logons 4625](../images/05-attack-and-detection/failed_logon.png)
+
+Successful logon 4624
+![Successful logon 4624](../images/05-attack-and-detection/successful_logon.png)
 
 ## Part B: Atomic Red Team
 
@@ -49,8 +52,11 @@ index=endpoint tsmith
 
 The new-local-user activity did eventually appear after a delay, so telemetry can lag behind execution.
 
-![Atomic Red Team test](../images/05-attack-detection/atomic-test.png)
-![Splunk PowerShell event](../images/05-attack-detection/splunk-powershell.png)
+Atomic Red Team test
+![Atomic Red Team test](../images/05-attack-and-detection/atomicredteam.png)
+
+Splunk Powershell Event
+![Splunk PowerShell event](../images/05-attack-and-detection/splunk_event.png)
 
 ## Issues and Fixes
 - **Issue: Atomic Red Team's local account creation test (T1136.001) produced no events in Splunk at first.**
